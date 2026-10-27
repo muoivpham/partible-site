@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Partible</title>
+<meta name="description" content="Partible: split shared costs for trips, dinners and a shared home.">
+<style>
+:root {
+  --bg: #f6f1e7;
+  --text: #1f2a24;
+  --muted: #5d665f;
+  --green: #1b5a3c;
+  --line: #e2d9c7;
+  --card: #fffdf8;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121714;
+    --text: #ece8de;
+    --muted: #a7ada6;
+    --green: #8fd1ae;
+    --line: #2b332e;
+    --card: #1a201c;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+a { color: var(--green); }
+.brand { margin: 0 0 24px; font-weight: 700; letter-spacing: .02em; }
+.brand a { text-decoration: none; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0; }
+h2 { font-size: 1.2rem; margin: 2.2em 0 .5em; }
+.meta { color: var(--muted); margin: .25em 0 1.5em; }
+.lead { font-size: 1.05rem; }
+ul { padding-left: 1.2em; }
+li { margin: .35em 0; }
+table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: .95rem; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+tr:last-child td { border-bottom: 0; }
+th { font-size: .85rem; color: var(--muted); font-weight: 600; }
+@media (max-width: 560px) {
+  table, thead, tbody, tr, th, td { display: block; }
+  thead { display: none; }
+  tr { border-bottom: 1px solid var(--line); padding: 6px 0; }
+  td { border: 0; padding: 4px 12px; }
+  td:first-child { padding-top: 10px; }
+}
+</style>
+</head>
+<body>
+<main>
+<p class="brand">Partible</p>
+<h1>Fair shares for every group</h1>
+<p class="lead">Partible keeps track of shared costs for trips, dinners, parties and a shared home, and shows the fewest payments that settle everyone up. Free, no ads, works offline. Coming to the App Store.</p>
+<ul>
+<li><a href="privacy/">Privacy Policy</a></li>
+<li>Support: <a href="mailto:muoivpham@gmail.com">muoivpham@gmail.com</a></li>
+</ul>
+</main>
+</body>
+</html>
