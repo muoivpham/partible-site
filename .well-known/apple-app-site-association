@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["3LWKJZULB2.com.partible.app"],
+        "components": [
+          {
+            "/": "/partible/join/*",
+            "comment": "Open Partible group invitations. The app validates the code query parameter before joining."
+          }
+        ]
+      }
+    ]
+  }
+}

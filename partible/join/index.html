@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow">
+<title>Join a group · Partible</title>
+<meta name="description" content="Use your invite code to join a group in Partible.">
+<style>
+:root {
+  --bg: #f6f1e7;
+  --text: #1f2a24;
+  --muted: #5d665f;
+  --green: #1b5a3c;
+  --line: #e2d9c7;
+  --card: #fffdf8;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121714;
+    --text: #ece8de;
+    --muted: #a7ada6;
+    --green: #8fd1ae;
+    --line: #2b332e;
+    --card: #1a201c;
+  }
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+a { color: var(--green); }
+.brand { margin: 0 0 24px; font-weight: 700; letter-spacing: .02em; }
+.brand a { text-decoration: none; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 0; }
+p { margin: 1em 0; }
+.card { margin: 24px 0; padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+.code-label, .muted { color: var(--muted); }
+.code-label { margin: 0 0 8px; }
+.code { display: block; width: 100%; min-width: 0; padding: 0; border: 0; background: transparent; color: var(--text); font: 700 clamp(1.1rem, 5.5vw, 2rem)/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .02em; }
+button, .button { display: inline-block; min-height: 44px; padding: 10px 16px; border: 1px solid var(--green); border-radius: 10px; font: inherit; font-weight: 600; background: var(--green); color: var(--bg); cursor: pointer; text-align: center; text-decoration: none; }
+button { margin-top: 12px; }
+.button { max-width: 100%; }
+:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+.status { min-height: 1.6em; margin-bottom: 0; }
+footer { margin-top: 32px; }
+</style>
+</head>
+<body>
+<main>
+<p class="brand"><a href="../../">Tenten Apps</a> · <a href="../">Partible</a></p>
+<h1 id="heading">Join a group</h1>
+<p id="intro">Your invitation code will appear here when you open a valid invite link.</p>
+<section id="invite" class="card" aria-label="Your invitation" hidden>
+<p class="code-label"><label for="code">Invite code</label></p>
+<input id="code" class="code" readonly spellcheck="false" autocomplete="off" aria-describedby="instructions">
+<button id="copy" type="button">Copy</button>
+<p id="status" class="status muted" role="status" aria-live="polite"></p>
+<p id="instructions">Open Partible and tap Join with a code. Paste this code and tap Join.</p>
+<p class="muted">If asked “Which one is you?”, choose your name in the group.</p>
+</section>
+<noscript><p>Turn on JavaScript to see and copy the invite code, or ask your friend to share the code directly.</p></noscript>
+<!-- Owner: replace #app-store-link with the real App Store URL when Partible is live. -->
+<a class="button" href="#app-store-link" aria-describedby="app-store-link">Get Partible on the App Store</a>
+<p id="app-store-link" class="muted">Coming to the App Store. The download link will be available when Partible launches.</p>
+<footer><a href="../">Partible support</a> · <a href="../privacy/">Privacy Policy</a></footer>
+</main>
+<script>
+(() => {
+  const heading = document.getElementById('heading');
+  const intro = document.getElementById('intro');
+  const invite = document.getElementById('invite');
+  const code = document.getElementById('code');
+  const copy = document.getElementById('copy');
+  const status = document.getElementById('status');
+  const values = new URLSearchParams(window.location.search).getAll('code');
+  // Match the server's normalization, then require its 12-character invite shape.
+  const clean = String(values[0] ?? '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+  if (values.length !== 1 || !/^[A-Z0-9]{12}$/.test(clean)) {
+    heading.textContent = "This link doesn't look right";
+    intro.textContent = 'Ask the person who invited you for a new link or the invite code.';
+    return;
+  }
+  code.value = `${clean.slice(0, 4)}-${clean.slice(4, 8)}-${clean.slice(8)}`;
+  intro.textContent = 'Copy your invite code, then open Partible and tap Join with a code.';
+  invite.hidden = false;
+  copy.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(code.value);
+      status.textContent = 'Copied. Open Partible and tap Join with a code.';
+    } catch {
+      code.focus();
+      code.select();
+      status.textContent = 'Copy this selected code using your device’s Copy command, then open Partible.';
+    }
+  });
+})();
+</script>
+</body>
+</html>
