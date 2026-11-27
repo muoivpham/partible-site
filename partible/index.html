@@ -40,6 +40,12 @@ h1 { font-size: 2rem; line-height: 1.2; margin: 0; }
 h2 { font-size: 1.2rem; margin: 2.2em 0 .5em; }
 .meta { color: var(--muted); margin: .25em 0 1.5em; }
 .lead { font-size: 1.05rem; }
+.faq { margin-top: 32px; }
+.faq details { margin: 12px 0; padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+.faq summary { cursor: pointer; font-weight: 600; min-height: 44px; padding: 8px 0; }
+.faq p { margin: 12px 0 0; }
+.faq a { overflow-wrap: anywhere; }
+:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
 ul { padding-left: 1.2em; }
 li { margin: .35em 0; }
 table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: .95rem; }
@@ -66,6 +72,38 @@ th { font-size: .85rem; color: var(--muted); font-weight: 600; }
 <li>Support: <a href="mailto:muoipham.digital@gmail.com">muoipham.digital@gmail.com</a></li>
 <li>Made by Viet Muoi Pham, Hanoi, Vietnam</li>
 </ul>
+<section class="faq" aria-labelledby="faq-heading">
+<h2 id="faq-heading">Help with Partible</h2>
+<p>Quick answers for your groups and everyday spending.</p>
+<details>
+<summary>How do I add a cost?</summary>
+<p>Open a group and tap Add expense. Enter the amount and what it was for, choose who paid, and select the people sharing it. Split equally, by shares or by exact amounts, then save. For spending just for you, open Personal and add a personal cost.</p>
+</details>
+<details>
+<summary>How do we settle up?</summary>
+<p>Open your group’s Balances tab to see who owes whom and the suggested payments. Pay outside Partible, in your usual app or in cash, then tap Pay &lt;name&gt; or Received beside the suggested payment and record what was paid. You can record a partial payment too. Partible updates the balances; it never moves money.</p>
+</details>
+<details>
+<summary>How do I invite someone?</summary>
+<p>Open the group’s Members tab and tap Invite. Share the invite link, code or QR with the people you want to join. They can open Groups, tap Join with a code and enter the code. If asked “Which one is you?”, choose the name already added for them. If an invite has expired, ask the person who shared it for a new one.</p>
+</details>
+<details>
+<summary>How do I export my data?</summary>
+<p>In Profile, Export my data saves a JSON file with your profile, each group’s name and currency, your balance in each group, and your personal costs and bills. It does not include the group costs or recorded payments. For detailed group records, open that group’s Summary tab and choose CSV or JSON. In Personal, choose a month and use its Export option for a monthly CSV. Keep exported files somewhere private, especially if you share your device.</p>
+</details>
+<details>
+<summary>How do I delete my account?</summary>
+<p>Open Profile and choose Delete my account. If you still owe money or are owed money in a group, use Settle first and finish those balances before confirming deletion by typing DELETE. Your personal costs and bills are erased too. A group where you were the only person with an account is deleted with its records. Otherwise, shared costs and recorded payments remain in the other members’ records under “Former member”; the <a href="privacy/#keep">Privacy Policy explains what is removed and what stays</a>.</p>
+</details>
+<details>
+<summary>What does Partible keep?</summary>
+<p>Partible keeps the profile, group, cost and recorded-payment information needed to run the app, along with sign-in and notification information. Your Personal tab stays on your iPhone and never reaches our servers. Read <a href="privacy/#what">what we keep and why</a> and <a href="privacy/#keep">how long we keep it</a> in the Privacy Policy for the full details.</p>
+</details>
+<details>
+<summary>How do I report a problem?</summary>
+<p>Email <a href="mailto:muoipham.digital@gmail.com">muoipham.digital@gmail.com</a> with what you were trying to do, what happened and your app version (at the bottom of Profile). Include the error code if one is shown. A screenshot can help, but hide names, amounts and other private details first. Never send a password, sign-in code or invite code.</p>
+</details>
+</section>
 </main>
 </body>
 </html>
